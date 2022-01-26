@@ -1,0 +1,7 @@
+package com.qiuguan.boot.biz.service;
+
+/**
+ * @author created by qiuguan on 2022/1/25 18:20
+ */
+public class PayRequest {
+}

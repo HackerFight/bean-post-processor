@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- ===== [public Appender] ===== -->
+	<!-- [Public Appender] default -->
+	<appender name="DEFAULT-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/common-default.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Public Appender] critical ERRRO -->
+	<appender name="CRITICAL-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/common-critical.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<param name="threshold" value="error" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Public Appender] ERROR -->
+	<appender name="ERROR-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/common-error.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<param name="threshold" value="error" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Public Appender] System init -->
+	<appender name="SYSINIT-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/common-sysinit.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Public Appender] Console STDOUT -->
+	<appender name="STDOUT-APPENDER" class="org.apache.log4j.ConsoleAppender">
+		<param name="encoding" value="UTF-8" />
+		<param name="target" value="System.out" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Public Appender] Console STDERR -->
+	<appender name="STDERR-APPENDER" class="org.apache.log4j.ConsoleAppender">
+		<param name="encoding" value="UTF-8" />
+		<param name="target" value="System.err" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- ===== [Appender] ===== -->
+	<!-- [Appender] SOFA DEFAULT -->
+	<appender name="SOFA-DEFAULT-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/sofa-default.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="CASHIER-LOCALCACHE-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-localcache.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="CASHIER-RULE-ENGINE-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-rule-engine.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="CASHIER-RULE-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-rule-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier biz service impl -->
+	<appender name="CASHIER-BIZ-SERVICE-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-biz-service.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier biz pay -->
+	<appender name="CASHIER-BIZ-PAY-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/apcashier-biz-pay.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier biz withdraw -->
+	<appender name="CASHIER-BIZ-WITHDRAW-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-biz-withdraw.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier biz decision -->
+	<appender name="CASHIER-BIZ-DECISION-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-biz-decision.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier core pay -->
+	<appender name="CASHIER-CORE-PAY-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-core-pay.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier core withdraw -->
+	<appender name="CASHIER-CORE-WITHDRAW-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-core-withdraw.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier core service decision -->
+	<appender name="CASHIER-CORE-DECISION-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-core-decision.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier core shared -->
+	<appender name="CASHIER-CORE-SHARED-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-core-shared.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- [Appender] apcashier common service integration cache -->
+	<appender name="CASHIER-COMMON-SERVICE-INTEGRATION-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-service-integration.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="FCDATABUS-CLIENT-UNIFORMCONTEXT-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/fcdatabus-client-uniformcontext-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="FCDATABUS-CLIENT-UNIFORMCONTEXT-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/fcdatabus-client-uniformcontext.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="FCDATABUS-CLIENT-EVENTLOG-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/fcdatabus-client-eventlog-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PAYMENT-SERVICE-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-payment-service-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PROD-PAYMENT-SERVICE-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-payment-prod-service-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="MSG-HANDLER-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-msg-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ASSET-ASSIGN-SERVICE-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-asset-assign-service-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PAYMENT-VIEW-SERVICE-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-payment-view-service-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PAYMENT-RESULT-SERVICE-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-payment-result-service-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="SERVICEINST-SERVICE-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/apcashier-serviceinst-service-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="SYSTEM-ERRORCODE-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/system-errorcode.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="SECURITY-RULE-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/fcriskcloud-rule-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<!-- ECHO -->
+	<appender name="ECHO_RECORD_DATA_APPENER"
+
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/echo-record-data.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d|%m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ECHO_ERROR_APPENER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file" value="${log_root}/${sys_host_name}/echo-error.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d|%m%n" />
+		</layout>
+	</appender>
+
+	<appender name="FLUXNET-PLUGIN-OPENAPI-DIGEST-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/fcfluxnet-plugin-openapi-digest.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+	<logger name="FLUXNET-PLUGIN-OPENAPI-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="FLUXNET-PLUGIN-OPENAPI-DIGEST-APPENDER" />
+	</logger>
+
+	<appender name="FLUXNET-PLUGIN-OPENAPI-COMMON-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/fcfluxnet-plugin-openapi-common.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="FLUXNET-PLUGIN-OPENAPI-COMMON" additivity="false">
+		<level value="${log_level}" />
+		<appender-ref ref="FLUXNET-PLUGIN-OPENAPI-COMMON-APPENDER" />
+	</logger>
+
+	<appender name="FINMNG-CLIENT-COMMON-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/fcfluxnet-fluxconf-client-common.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern"
+				value="[%t] %d [%X{loginUserEmail}/%X{loginUserID}/%X{remoteAddr}/%X{clientId} - %X{requestURIWithQueryString}] %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="FINMNG-CLIENT-COMMON" additivity="false">
+		<level value="${log_level_info}}" />
+		<appender-ref ref="FINMNG-CLIENT-COMMON-APPENDER" />
+	</logger>
+
+	<logger name="FINMNG-CLIENT-CACHE" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="FINMNG-CLIENT-CACHE-APPENDER" />
+	</logger>
+
+	<appender name="FINMNG-CLIENT-CACHE-APPENDER"
+		class="com.alibaba.common.logging.spi.log4j.ShadowLogSeparateDailyRollingAppender">
+		<param name="file"
+			value="${log_root}/${sys_host_name}/fcfluxconf-client-cache.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- critical logger -->
+	<logger name="CRITICAL" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CRITICAL-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- system initialize logger -->
+	<logger name="SYSINIT" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="SYSINIT-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- stdout logger -->
+	<logger name="STDOUT" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="STDOUT-APPENDER" />
+	</logger>
+
+	<!-- stderr logger -->
+	<logger name="STDERR" additivity="false">
+		<level value="${log_level}" />
+		<appender-ref ref="STDERR-APPENDER" />
+	</logger>
+
+	<!-- jboss logger -->
+	<logger name="org.jboss" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="STDOUT-APPENDER" />
+	</logger>
+
+	<!-- ===================================================================== -->
+	<!-- ===== [framework Logger] ===== -->
+	<!-- ===================================================================== -->
+
+	<!-- [Logger] SOFA -->
+	<logger name="com.alipay.sofa" additivity="false">
+		<level value="${log_level}" />
+		<appender-ref ref="SOFA-DEFAULT-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- error logger -->
+	<logger name="ERROR" additivity="false">
+		<level value="${log_level}" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- ===================================================================== -->
+	<!-- apcashier log -->
+	<!-- ===================================================================== -->
+
+	<!-- [Logger] apcashier biz service impl -->
+	<logger name="com.alipay.ap.cashierprod.service.impl"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-BIZ-SERVICE-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="com.alipay.ap.cashier.biz.service.impl"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-BIZ-SERVICE-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="CASHIER-RULE-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-RULE-DIGEST-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="com.alipay.ap.cashier.common.ruleengine"
+		additivity="false">
+		<level value="${log_level}" />
+		<appender-ref ref="CASHIER-RULE-ENGINE-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="com.alipay.fc.common.localcache" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-LOCALCACHE-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger
+		name="com.alipay.fc.router.alipayplus.common.service.client.instability.cache"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-LOCALCACHE-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- [Logger] apcashier core shared -->
+	<logger name="com.alipay.ap.cashier.core.service.shared"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-CORE-SHARED-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- [Logger] apcashier core withdraw -->
+	<logger name="com.alipay.ap.cashier.core.service.withdraw"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-CORE-WITHDRAW-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- [Logger] apcashier core pay -->
+	<logger name="com.alipay.ap.cashier.core.service.pay"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-CORE-PAY-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- [Logger] apcashier core decision -->
+	<logger name="com.alipay.ap.cashier.core.service.decision"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-CORE-DECISION-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- [Logger] apcashier biz withdraw -->
+	<logger name="com.alipay.ap.cashier.biz.service.withdraw"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-BIZ-WITHDRAW-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- [Logger] apcashier core pay -->
+	<logger name="com.alipay.ap.cashier.biz.service.pay" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="CASHIER-BIZ-PAY-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- [Logger] apcashier biz decision -->
+	<logger name="com.alipay.ap.cashier.biz.service.decision"
+		additivity="false">
+		<level value="${log_level}" />
+		<appender-ref ref="CASHIER-BIZ-DECISION-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<!-- [Logger] apcashier common service integration log -->
+	<logger name="com.alipay.ap.cashier.common.service.integration"
+		additivity="false">
+		<level value="${log_level}" />
+		<appender-ref ref="CASHIER-COMMON-SERVICE-INTEGRATION-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="fcdatabus-client-uniformcontext-digest"
+		additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="FCDATABUS-CLIENT-UNIFORMCONTEXT-DIGEST-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="fcdatabus-client-uniformcontext" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="FCDATABUS-CLIENT-UNIFORMCONTEXT-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="fcdatabus-client-eventlog-digest" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="FCDATABUS-CLIENT-EVENTLOG-DIGEST-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="PROD-PAYMENT-SERVICE-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="PROD-PAYMENT-SERVICE-DIGEST-APPENDER" />
+	</logger>
+
+	<logger name="PAYMENT-SERVICE-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="PAYMENT-SERVICE-DIGEST-APPENDER" />
+	</logger>
+
+	<logger name="MSG-HANDLER-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="MSG-HANDLER-DIGEST-APPENDER" />
+	</logger>
+
+	<logger name="ASSET-ASSIGN-SERVICE-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="ASSET-ASSIGN-SERVICE-DIGEST-APPENDER" />
+	</logger>
+
+	<logger name="PAYMENT-VIEW-SERVICE-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="PAYMENT-VIEW-SERVICE-DIGEST-APPENDER" />
+	</logger>
+
+	<logger name="PAYMENT-RESULT-SERVICE-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="PAYMENT-RESULT-SERVICE-DIGEST-APPENDER" />
+	</logger>
+
+	<logger name="SERVICEINST-SERVICE-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="SERVICEINST-SERVICE-DIGEST-APPENDER" />
+	</logger>
+
+	<logger name="SECURITY-RULE-DIGEST" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="SECURITY-RULE-DIGEST-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</logger>
+
+	<logger name="SYSTEM-ERRORCODE" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="SYSTEM-ERRORCODE-APPENDER" />
+	</logger>
+
+	<!-- ECHO -->
+	<logger name="ECHO_RECORD_DATA_LOGGER" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="ECHO_RECORD_DATA_APPENER" />
+	</logger>
+
+	<logger name="ECHO_ERROR_LOGGER" additivity="false">
+		<level value="${log_level_info}" />
+		<appender-ref ref="ECHO_ERROR_APPENER" />
+	</logger>
+
+
+	<!-- loadTest -->
+	<logger name="LOAD-TEST-UTIL" additivity="false">
+		<level value="${log_level_info}"/>
+		<appender-ref ref="LOAD-TEST-UTIL-APPENDER"/>
+	</logger>
+
+	<appender name="LOAD-TEST-UTIL-APPENDER"
+			  class="com.alibaba.common.logging.spi.log4j.DailyRollingFileAppender">
+		<param name="file"
+			   value="${log_root}/${sys_host_name}/shadow/loadtest-util.log"/>
+		<param name="append" value="true"/>
+		<param name="encoding" value="UTF-8"/>
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{2} - %m%n"/>
+		</layout>
+	</appender>
+
+	<!-- ===================================================================== -->
+	<!-- Root logger -->
+	<!-- ===================================================================== -->
+
+	<root>
+		<level value="${log_level}" />
+		<appender-ref ref="DEFAULT-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</root>
+</log4j:configuration>
