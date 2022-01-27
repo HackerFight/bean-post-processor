@@ -7,8 +7,8 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    public void createOrder() {
-        System.out.println("创建了订单...........");
+    public String createOrder(String name) {
+        return "创建了订单：" + name;
     }
 
     @Override

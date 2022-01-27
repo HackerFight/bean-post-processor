@@ -29,12 +29,12 @@ public class MainApplication {
 
     private static void nextTest(ConfigurableApplicationContext ctx) {
         OrderService bean = ctx.getBean(OrderService.class);
-        bean.createOrder();
+        bean.createOrder("Iphone13");
 
         System.out.println("\n\n");
 
-        String s = bean.orderDetail();
-        System.out.println(s);
+//        String s = bean.orderDetail();
+//        System.out.println(s);
     }
 
 

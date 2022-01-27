@@ -5,11 +5,10 @@
 package com.qiuguan.boot.biz.util;
 
 import com.qiuguan.boot.biz.log.BaseDigestLog;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 
-import com.alibaba.common.logging.Logger;
-import com.alibaba.common.logging.LoggerFactory;
-import com.alipay.common.error.ErrorContext;
 
 /**
  * 系统错误码摘要日志打印

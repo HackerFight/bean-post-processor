@@ -3,7 +3,6 @@ package com.qiuguan.boot.next.config;
 import com.qiuguan.boot.next.advice.MyInterceptor;
 import com.qiuguan.boot.next.service.OrderService;
 import com.qiuguan.boot.next.service.OrderServiceImpl;
-import com.qiuguan.boot.pre.service.HelloService;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.ClassFilter;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
@@ -32,6 +31,12 @@ public class ProxyConfiguration {
 
     /**
      * 创建 Advice
+     * @see org.springframework.aop.MethodBeforeAdvice
+     * @see org.springframework.aop.AfterAdvice
+     * @see org.springframework.aop.AfterReturningAdvice
+     * @see org.aopalliance.intercept.MethodInterceptor
+     * .....
+     * 还可以是很多类型的，具体有哪些，请看AOP
      * @return
      */
     @Bean

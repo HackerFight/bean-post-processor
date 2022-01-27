@@ -8,7 +8,7 @@ public interface OrderService {
     /**
      * create order
      */
-    void createOrder();
+    String createOrder(String name);
 
     /**
      * order detail

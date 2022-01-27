@@ -6,8 +6,8 @@ package com.qiuguan.boot.next.service;
 public class DefaultOrderService implements OrderService {
 
     @Override
-    public void createOrder() {
-        System.out.println("创建了默认的订单");
+    public String createOrder(String name) {
+        return "创建了默认的订单：" + name;
     }
 
     @Override
